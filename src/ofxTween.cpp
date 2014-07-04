@@ -116,11 +116,6 @@ void ofxTween::setParameters(int _id,  ofxEasing & _easing, ofxEasingType _type,
 		duration = _duration*1000;
 		delay = _delay*1000;
 	}
-	start();
-
-	completed = false;
-	running = true;
-
 }
 
 void ofxTween::addValue(float _from, float _to){
@@ -137,6 +132,13 @@ void ofxTween::start(){
 	}else{
 		elapsed=0;
 	}
+    
+    completed = false;
+	running = true;
+}
+
+void ofxTween::stop(){
+	running = false;
 }
 
 void ofxTween::setDuration(int _duration) {
@@ -167,7 +169,7 @@ bool ofxTween::isCompleted() {
 }
 
 float ofxTween::update() {
-	if(!completed){
+	if(running && !completed){
 
 		if(frameBased){
 			ofxEasingArgs args;

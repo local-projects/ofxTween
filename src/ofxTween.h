@@ -25,9 +25,10 @@ class ofxTween{
 
 		void setParameters(int id, ofxEasing & easing, ofxEasingType type, float from, float to,  unsigned duration, unsigned delay);
 		void setParameters( ofxEasing & easing, ofxEasingType type, float from, float to,  unsigned duration, unsigned delay);
-
 		void addValue(float from, float to);
+    
 		void start();
+        void stop();
 
 		~ofxTween();
 
